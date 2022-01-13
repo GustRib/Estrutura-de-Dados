@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1602272846 source:g:\meu drive\ere_ed\aula05listacont\listacont.cpp
+	<iostream>
+	<cstdlib>
+	"Ponto.h"
+	"ListaCont.h"
+
+1525656607 g:\meu drive\ere_ed\aula05listacont\ponto.h
+	<cmath>
+
+1611950158 g:\meu drive\ere_ed\aula05listacont\listacont.h
+
+1611947921 source:g:\meu drive\ere_ed\aula05listacont\main.cpp
+	<iostream>
+	"Ponto.h"
+	"ListaCont.h"
+
+1638996719 source:g:\meu drive\ere_ed\aulalistacontiguaed\projlistacont\main.cpp
+	<iostream>
+	"Ponto.h"
+	"ListaCont.h"
+
+1525656607 g:\meu drive\ere_ed\aulalistacontiguaed\projlistacont\ponto.h
+	<cmath>
+
+1638995655 g:\meu drive\ere_ed\aulalistacontiguaed\projlistacont\listacont.h
+
+1638996813 source:g:\meu drive\ere_ed\aulalistacontiguaed\projlistacont\listacont.cpp
+	<iostream>
+	<cstdlib>
+	"ListaCont.h"
+
