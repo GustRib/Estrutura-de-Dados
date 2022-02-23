@@ -25,7 +25,6 @@ int ArvBin::getRaiz()
 void ArvBin::cria(int x, ArvBin *sae, ArvBin *sad)
 {
     NoArv *p = new NoArv();
-    
     p->setInfo(x);
     p->setEsq(sae->raiz);
     p->setDir(sad->raiz);
@@ -154,4 +153,28 @@ void ArvBin::auxPreOrdem(NoArv *p)
     }
 }
 
+int* ArvBin::criaVetFolhas(int k, int *n)
+{
+    int i = 0;
+    n = new int[];
+    auxCriaVetFolhas(raiz, k, n, &i);
+    return n;
+}
+
+void ArvBin::auxCriaVetFolhas(NoArv *p, int k, int *n, int *i)
+{
+    if(p!=NULL)
+    {
+        if(k == 0)
+        {
+            if(p->getInfo())
+            for(i;n[i]!=0;i++);
+            n[i]=p->getInfo();
+
+        }
+        else{
+            n[*i] = -1;
+        }
+    }
+}
 

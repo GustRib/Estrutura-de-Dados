@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ArvBinBusca.h"
+#include "ArvBinBusca.cpp"
 
 using namespace std;
 

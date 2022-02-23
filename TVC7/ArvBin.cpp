@@ -25,7 +25,6 @@ int ArvBin::getRaiz()
 void ArvBin::cria(int x, ArvBin *sae, ArvBin *sad)
 {
     NoArv *p = new NoArv();
-    
     p->setInfo(x);
     p->setEsq(sae->raiz);
     p->setDir(sad->raiz);
@@ -154,4 +153,43 @@ void ArvBin::auxPreOrdem(NoArv *p)
     }
 }
 
+void ArvBin::alturaContagens(int k)
+{
+    if (k % 3 == 0)
+        cout << "Existem: ";
+    return auxalturaContagens(raiz);
+}
 
+void ArvBin::auxalturaContagens(NoArv* p)
+{
+    if(p == NULL)
+
+    int he = auxalturaContagens(p->getEsq());
+    int hd = auxalturaContagens(p->getDir());
+    if(he > hd)
+        return he+1;
+    else
+        return hd+1; 
+
+    int total = auxalturaContagens(p->getEsq()) + auxalturaContagens(p->getDir());
+        if(p->getEsq() == NULL && p->getDir() == NULL)
+            total++;
+    return total;
+}
+
+void ArvBin::imprimeNivel(int k)
+{
+	auxImpNivel(raiz, k);
+}
+
+void ArvBin::auxImpNivel(NoArv* p, int k)
+{
+	if (p != NULL && k >= 0)
+	{
+		if (k == 0)
+			cout << p->getInfo() << " ";
+
+		auxImpNivel(p->getEsq(), k - 1);
+		auxImpNivel(p->getDir(), k - 1);
+	}
+}
