@@ -20,14 +20,14 @@ int main ()
     cout << str << endl; // só sai o "The" pois tem espaço na string
 }
 
-/* Para ler uma linha inteira, e preciso usar a funcao
-getline(cin,str)
+// Para ler uma linha inteira, e preciso usar a funcao
+// getline(cin,str)
 
-exemplo:
+// exemplo:
 
-string str;
-getline(cin,str);
+// string str;
+// getline(cin,str);
 
-cout << "A string digitada e: " << str;
-cout << endl;/*
+// cout << "A string digitada e: " << str;
+// cout << endl;
 
