@@ -1,0 +1,1 @@
+int *pt = new int;

@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include "ListaCont.h"
 
+
 using namespace std;
 
 ListaCont::ListaCont(int tam)

@@ -136,7 +136,7 @@ void ListaDupla::removeFinal()
         delete p;
         n = n - 1;
     }
-
+}
     void ListaDupla::removeEntreInter(int v1, int v2)
 {   
     if(primeiro != NULL) 
@@ -186,6 +186,9 @@ void ListaDupla::removeV(int v1, int v2)
             }
         }
     }
-    else
+    }
+    else {
         cout << "Lista vazia" << endl;
-}
+    };
+        
+

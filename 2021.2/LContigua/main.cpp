@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "ListaCont.h"
+#include "ListaCont.cpp"
 
 using namespace std;
 
