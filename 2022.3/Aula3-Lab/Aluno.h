@@ -1,5 +1,5 @@
-#ifdef ALUNO_HPP_INCLUDED
-#define ALUNO_HPP_INCLUDED
+#ifdef ALUNO_H
+#define ALUNO_H
 
 class Aluno
 {

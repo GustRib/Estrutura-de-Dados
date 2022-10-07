@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Aluno.hpp"
+#include "Aluno.h"
 //#include "string.h"
 
 
