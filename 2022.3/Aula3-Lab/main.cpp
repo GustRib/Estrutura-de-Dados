@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Aluno.h"
-
+#include "Aluno.cpp"
 using namespace std;
 
 int main()

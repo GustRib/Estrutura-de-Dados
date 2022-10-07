@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MatrizAntiSimetrica.h"
+#include "MatrizAntiSimetrica.cpp"
 using namespace std;
 
 int main()
