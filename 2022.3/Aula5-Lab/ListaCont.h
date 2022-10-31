@@ -21,7 +21,11 @@ public:
     void removeK(int k); // remove o nó xk
     void insereInicio(int val); // insere no inicio da lista
     void removeInicio(); // remove o primeiro nó
-    void imprime();
+    void imprime(); // imprime todo o conteudo da lista 
+    int numNos(); // retorna o numero de nós da lista
+    int buscaMaior(int val); // verifica se existe um numero maior que o fornecido 
+    void limpar(); // remove todos os elemento da lista
+    void insereValores(int tam, int vet[]); // verifica e insere novos valores no final da lista
 };
 
 #endif 

@@ -96,3 +96,65 @@ void ListaCont::removeK(int k)
         exit(5);
     }
 }
+
+void ListaCont::insereInicio(int val)
+{
+    if (n == 0)
+    {   //lista vazia. Sera o unico no da lista
+        vet[n] = val;
+        n = n + 1;
+    }
+    else // se a lista nao for vazia precisa deslocar todos os elementos
+        insereK(0, val);
+}
+
+void ListaCont::removeInicio()
+{
+    removeK(0);
+}
+
+void ListaCont::imprime()
+{
+    if (n != 0) {
+        cout << "Imprimindo a Lista Contigua (" << n << " elementos)" << endl;
+        for (int i = 0; i < n; i++) {
+            cout << vet[i] << " ";
+        }
+        cout << endl;
+    }
+    else
+        cout << "Lista vazia" << endl;
+}
+
+int ListaCont::numNos()
+{
+    return n;
+}
+
+int ListaCont::buscaMaior(int val)
+{
+    for (int i = 0; i < n; i++) {
+        if (vet[i] > val)
+            return i;
+    }
+
+    return -1;
+}
+
+
+void ListaCont::limpar()
+{
+    n = 0;
+}
+
+void ListaCont::insereValores(int tam, int vet[])
+{
+    if (tam > (max - n)) {
+        cout << "ERRO: Nao ha espaco suficiente!" << endl;
+        exit(1);
+    }
+    else {
+        for (int i = 0; i < tam; i++)
+            insereFinal(vet[i]);
+    }
+}
