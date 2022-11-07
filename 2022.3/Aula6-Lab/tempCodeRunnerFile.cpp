@@ -1,0 +1,1 @@
+    cout << "Numero de nos da lista: " << endl;

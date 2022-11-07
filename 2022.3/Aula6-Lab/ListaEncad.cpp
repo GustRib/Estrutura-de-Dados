@@ -132,3 +132,99 @@ void ListaEncad::removeFinal()
     else
         cout << "ERRO: lista vazia!" << endl;
 }
+
+void ListaEncad::imprime()
+{
+	No* p = primeiro;
+	while (p != NULL)
+	{
+		cout << p->getInfo() << "    ";
+		p = p->getProx();
+	}
+	cout << endl << endl << endl;
+}
+
+int ListaEncad::numNos()
+{
+    return n;
+}
+
+int ListaEncad::buscaMaior(int val)
+{
+	int k = 0;
+	for (No* i = primeiro; i != NULL; i = i->getProx())
+	{
+		if (i->getInfo() > val)
+		{
+			return k;
+		}
+		k++;
+	}
+    return -1;
+	//cout << "Nao ha elemento na lista que seja maior!" << endl;
+}
+
+void ListaEncad::limpar()
+{
+    No* p = primeiro;
+
+	while (p != NULL)
+	{
+		primeiro = primeiro->getProx();
+		delete p;
+		p = primeiro;
+	}
+	primeiro = NULL;
+	ultimo = NULL;
+	n = 0;
+}
+
+float ListaEncad::calculaMedia()
+{
+        int soma = 0;
+	for (No* i = primeiro; i != NULL; i = i->getProx())
+	{
+		soma += i->getInfo();
+	}
+	return soma / (float)n;
+}
+
+void ListaEncad::concatena(ListaEncad *l2)
+{
+    for (No* p = l2->primeiro; p != NULL; p = p->getProx())
+		insereFinal(p->getInfo());
+}
+
+ListaEncad* ListaEncad::partir(int x)
+{
+    ListaEncad* newList = new ListaEncad();
+	No* ant = NULL;
+	No* p = primeiro;
+	int i = -1;
+
+	// percorre lista intriseca ate o indice x
+	while (p != NULL && i < x) {
+		ant = p;
+		p = p->getProx();
+		i = i + 1;
+	}
+
+	if (p != NULL)
+	{
+		// Nova lista
+		newList->primeiro = p;
+		newList->ultimo = ultimo;
+		newList->n = n - i;
+
+		if (i == 0)
+			primeiro = NULL;
+		else
+			ant->setProx(NULL);
+
+		// Lista intriseca
+		ultimo = ant;
+		n = n - newList->n;
+	}
+	return newList;
+}
+
