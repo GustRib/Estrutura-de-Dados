@@ -144,10 +144,10 @@ void ListaEncad::imprime()
 	cout << endl << endl << endl;
 }
 
-int ListaEncad::numNos()
-{
-    return n;
-}
+// int ListaEncad::numNos()
+// {
+//     return n;
+// }
 
 int ListaEncad::buscaMaior(int val)
 {
@@ -192,7 +192,7 @@ float ListaEncad::calculaMedia()
 void ListaEncad::concatena(ListaEncad *l2)
 {
     for (No* p = l2->primeiro; p != NULL; p = p->getProx())
-		insereFinal(p->getInfo());
+		this->insereFinal(p->getInfo());
 }
 
 ListaEncad* ListaEncad::partir(int x)
