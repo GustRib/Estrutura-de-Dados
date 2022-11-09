@@ -24,7 +24,7 @@ public:
     float calculaMedia();           /// calcula a media dos valores fornecidos
     void concatena(ListaEncad *l2); /// Juntar a lista L2 ao final da lista L1
     ListaEncad* partir(int x);      /// Parte a lista interna em duas partes, de maneira que o nó de indice x se torne o primeiro nó da nova lista
-
+    void insere(int k, int val);
 private:
     No *primeiro;  /// ponteiro para o primeiro No da lista
     No *ultimo;    /// ponteiro para o ultimo No da lista

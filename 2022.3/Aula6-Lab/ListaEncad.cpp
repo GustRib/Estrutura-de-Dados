@@ -75,7 +75,7 @@ void ListaEncad::insereInicio(int val)
 
     primeiro = p;
 
-    n++;
+    n++; // n = n + 1;
     if(n == 1) ultimo = p;
 }
 
@@ -92,7 +92,7 @@ void ListaEncad::insereFinal(int val)
     if(n == 1) primeiro = p;
 }
 
-void ListaEncad::removeInicio()
+void ListaEncad::removeInicio() // com descritor 
 {
     No* p;
     if(primeiro != NULL)
@@ -101,12 +101,26 @@ void ListaEncad::removeInicio()
         primeiro = p->getProx();
         delete p;
 
+        //atualiza o descritor 
         n--;
         if(n == 0) ultimo = NULL;
     }
     else
         cout << "ERRO: lista vazia!" << endl;
 }
+
+// void ListaEncad::removeInicio() // sem descritor 
+// {
+//     No *p;
+//     if(primeiro != NULL)
+//     {
+//         p = primeiro;
+//         primeiro = p->getProx();
+//         delete p;
+//     }
+//     else
+//         cout << "ERRO: lista vazia!" << endl;
+// }
 
 void ListaEncad::removeFinal()
 {
@@ -226,4 +240,29 @@ ListaEncad* ListaEncad::partir(int x)
 	}
 	return newList;
 }
+
+// void listaEncad::insere(int k, int val)
+// {
+//     No *q = new No(), *p = primeiro;
+//     q->setInfo(val);
+//     int val = 0;
+//     while(p!NULL && int < k)
+//     {
+//         p=p->getProx();
+//         int++;
+//     }
+//     if(p!=NULL)
+//     {
+//         q->setProx(p->getProx());
+//         p->getProx(q);
+//     }
+//     else
+//     {   
+//         if(k==0)
+//             insereInicio(val);
+//         else
+//             delete q;
+//     }
+// }
+
 
