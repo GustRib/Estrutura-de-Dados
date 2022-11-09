@@ -144,10 +144,10 @@ void ListaEncad::imprime()
 	cout << endl << endl << endl;
 }
 
-// int ListaEncad::numNos()
-// {
-//     return n;
-// }
+int ListaEncad::numNos()
+{
+    return n;
+}
 
 int ListaEncad::buscaMaior(int val)
 {
@@ -161,7 +161,6 @@ int ListaEncad::buscaMaior(int val)
 		k++;
 	}
     return -1;
-	//cout << "Nao ha elemento na lista que seja maior!" << endl;
 }
 
 void ListaEncad::limpar()

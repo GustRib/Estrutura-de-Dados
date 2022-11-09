@@ -18,7 +18,7 @@ public:
 
     bool busca(int val);            /// retorna true caso val esteja na lista e false caso contrario
     void imprime();                 /// imprime todo o conteudo da lista 
-    int numNos(){return n;}         /// retorna o numero de nós da lista
+    int numNos();         /// retorna o numero de nós da lista
     int buscaMaior(int val);        /// verifica se existe um numero maior que o fornecido 
     void limpar();                  /// remove todos os elemento da lista
     float calculaMedia();           /// calcula a media dos valores fornecidos
