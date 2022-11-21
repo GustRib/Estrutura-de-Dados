@@ -1,35 +1,28 @@
 #include <iostream>
-#include <cstdlib> ///rand()
-#include <ctime>   ///time()
 #include "ListaDupla.h"
 #include "ListaDupla.cpp"
 
 using namespace std;
 
-int numAleatorio(int a, int b)
-{
-    return a + rand()%(b - a + 1); /// retorna um numero inteiro aleat�rio entre a e b
-}
-
 int main()
 {
-    ListaDupla l; /// cria lista vazia
-    int NumNos = 10;
+    ListaDupla l1; /// cria lista vazia
+    int NumNos = 5;
+    ListaDupla l2;
 
-    srand(time(NULL));
+    l1.insereFinal(55);
+    l1.insereFinal(54);
+    l1.insereFinal(53);
+    l1.insereFinal(52);
+    l1.insereFinal(51);
 
-    /// ATENCAO: os valores inseridos na lista sao gerados
-    /// aleatoriamente e mudam em cada execucao do programa!!!
-    cout << "Inserindo valores: ";
-    for(int i = 1; i <= NumNos; i++)
-    {
-        int val =  numAleatorio(0, 50); /// cria um valor aleat�rio entre 0 e 50
-        cout << val << ", ";
-        l.insereInicio(val);
-    }
-    cout << endl;
+    l2.insereFinal(56);
+    l2.insereFinal(57);
+    l2.insereFinal(58);
+    l2.insereFinal(59);
+    l2.insereFinal(60);
 
-    bool existe = l.busca(20);
+    bool existe = l1.busca(20);
     cout << "O valor 20 esta na lista? ";
     if(existe)
         cout << "Sim" << endl;
@@ -37,3 +30,5 @@ int main()
         cout << "Nao" << endl;
 
     return 0;
+}
+
