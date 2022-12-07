@@ -15,7 +15,8 @@ public:
     int getInicio();           /// retorna valor do primeiro No
     void enfileira(int val);   /// insere No no fim
     int desenfileira();        /// elimina No do inicio
-    bool vazia();              /// verifica se fila esta vazia
+    bool vazia();  
+    void imprime();            /// verifica se fila esta vazia
 };
 
 #endif // FILAENCAD_H_INCLUDED
