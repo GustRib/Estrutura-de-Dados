@@ -79,6 +79,19 @@ void ListaDupla::insereInicio(int val)
 	n = n + 1;
 }
 
+void ListaDupla::insereFinal(int val) {
+    NoDuplo* p = new NoDuplo();
+    p->setInfo(val);
+    p->setProx(NULL);
+    p->setAnt(ultimo);
+
+    if (n == 0) primeiro = p;
+    else ultimo->setProx(p);
+
+    ultimo = p;
+    n = n + 1;
+}
+
 void ListaDupla::removeInicio()
 {
 	NoDuplo *p;

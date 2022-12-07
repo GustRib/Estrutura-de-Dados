@@ -20,7 +20,7 @@ int main()
     l2.insereFinal(57);
     l2.insereFinal(58);
     l2.insereFinal(59);
-    l2.insereFinal(60);
+    l2.insereInicio(60);
 
     bool existe = l1.busca(20);
     cout << "O valor 20 esta na lista? ";
