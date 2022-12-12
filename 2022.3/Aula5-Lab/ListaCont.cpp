@@ -158,3 +158,27 @@ void ListaCont::insereValores(int tam, int vet[])
             insereFinal(vet[i]);
     }
 }
+
+void ListaCont::removeMultiplos(int val)
+{
+    int *aux = new int[max]; //vetor auxiliar
+    bool foiAlterado = false;
+    int j = 0;
+    int numRemocoes = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if(get(i) % val != 0)
+        {
+            foiAlterado = true;
+            aux[j] = get(i);
+            j++;
+        }
+    }
+    if (foiAlterado)
+    {
+        delete[] vet;
+        vet = aux;
+        n = j;
+    }
+}

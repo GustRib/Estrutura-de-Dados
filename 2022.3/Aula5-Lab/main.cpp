@@ -76,4 +76,7 @@ int main()
 
     L1.imprime();
     
+
+    l.removeMultiplos(3);
+    l.imprime();
 }

@@ -21,6 +21,8 @@ public:
     ListaDupla* concatena(ListaDupla* l2);
     ListaDupla* partir(int x);
     void removeOcorrencias(int val);
+    void removeEntre(NoDuplo *p, NoDuplo *q);
+    NoDuplo *getNo(int k);
 
 private:
     NoDuplo *primeiro;

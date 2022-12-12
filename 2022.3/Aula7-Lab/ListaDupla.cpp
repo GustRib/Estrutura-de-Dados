@@ -50,6 +50,24 @@ int ListaDupla::get(int k)
         return p->getInfo();
 }
 
+int ListaDupla::getNo(int k)
+{
+    NoDuplo *p = primeiro;
+    for(int i = 0; i < k; i++)
+    {
+        if(p == NULL)
+            break;
+        p = p->getProx();
+    }
+    if(p == NULL)
+    {
+        cout << "ERRO: Indice invalido!" << endl;
+        exit(1);
+    }
+    else
+        return p;
+}
+
 void ListaDupla::set(int k, int val)
 {
     NoDuplo *p = primeiro;
@@ -204,7 +222,8 @@ ListaDupla* ListaDupla::partir(int x) {
     return listaNova;
 }
 
-void ListaDupla::removeOcorrencias(int val) {
+void ListaDupla::removeOcorrencias(int val) 
+{
     NoDuplo* p = primeiro;
     while (p != NULL) {
         if (p->getInfo() == val) {
@@ -228,4 +247,53 @@ void ListaDupla::removeOcorrencias(int val) {
         }
         p = p->getProx();
     }
+}
+
+void ListaDupla::removeEntre(NoDuplo* p, NoDuplo* q)
+{
+    NoDuplo *aux = primeiro;
+    int indice = 0;
+
+    if(p == NULL && q == NULL)
+    {
+        cout << "p e q sao nulos, nao removemos nenhum no" << endl;
+        return;
+    }
+    if(p == NULL && (q == primeiro->getProx()))
+    {
+        removeInicio();
+        return;
+    }
+    if(q == NULL && (p == ultimo->getAnt()))
+    {
+        removeFinal();
+        return;
+    }
+    if(p->getProx() == q->getAnt())
+    {
+        while (aux != p)
+        {
+            aux = aux->getProx();
+            indice++;
+        }
+        removeK(indice + 1);
+    }
+}
+
+void ListaDupla::removeOcorrencias(int val)
+{
+    NoDuplo *aux = primeiro;
+    NoDuplo *ant = NULL;
+    NoDuplo *prox = NULL;
+
+    for(aux; aux != NULL; aux = aux->getProx())
+    {
+        if(aux->getInfo() == val)
+        {
+            ant = aux->getAnt();
+            prox = ant->getProx();
+            break;
+        }
+    }
+    removeEntre(ant, prox);
 }
