@@ -17,6 +17,8 @@ public:
     int desenfileira();        /// elimina No do inicio
     bool vazia();  
     void imprime();            /// verifica se fila esta vazia
+    FilaEncad* intercala(FilaEncad *f1, FilaEncad *f2);
+    FilaEncad* reorganiza(FilaEncad *f);
 };
 
 #endif // FILAENCAD_H_INCLUDED
