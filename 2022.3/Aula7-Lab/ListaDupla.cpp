@@ -222,7 +222,7 @@ ListaDupla* ListaDupla::partir(int x) {
     return listaNova;
 }
 
-void ListaDupla::removeOcorrencias(int val) 
+void ListaDupla::removeOcorrencias1(int val) 
 {
     NoDuplo* p = primeiro;
     while (p != NULL) {

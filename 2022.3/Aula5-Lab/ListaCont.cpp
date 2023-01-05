@@ -164,18 +164,18 @@ void ListaCont::removeMultiplos(int val)
     int *aux = new int[max]; //vetor auxiliar
     bool foiAlterado = false;
     int j = 0;
-    int numRemocoes = 0;
+    int numRemocoes = 0; //Número de remoções para diminuir em n
 
     for (int i = 0; i < n; i++)
     {
-        if(get(i) % val != 0)
+        if(get(i) % val != 0) //Se o resto da divisão por val for diferente 0, mantemos
         {
             foiAlterado = true;
             aux[j] = get(i);
             j++;
         }
     }
-    if (foiAlterado)
+    if (foiAlterado) //Se ele foi alterado em algum momento, apontamos vet para vetAux e limpamos a memória
     {
         delete[] vet;
         vet = aux;

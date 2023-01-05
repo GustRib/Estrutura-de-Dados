@@ -88,24 +88,24 @@ void FilaEncad::imprime()
 	cout << endl;
 }
 
-FilaEncad* FilaEncad::reorganiza(FilaEncad *f)
-{
-    FilaEncad *nova = new FilaEncad();
-    int qtdEnfileirada = 0;
+// FilaEncad* FilaEncad::reorganiza(FilaEncad *f)
+// {
+//     FilaEncad *nova = new FilaEncad();
+//     int qtdEnfileirada = 0;
 
-    for (No* no = inicio; No != NULL; no = no_>getProx())
-    {
-        if(no->getInfo() >70 && (no->getProx()->getInfo() >70))
-        {
-            nova->enfileira(no->getProx()->getInfo());
-        }
-        f->enfileira(no->getInfo())
-        qtdEnfileirada++;
-    }
+//     for (No* no = inicio; No != NULL; no = no_>getProx())
+//     {
+//         if(no->getInfo() >70 && (no->getProx()->getInfo() >70))
+//         {
+//             nova->enfileira(no->getProx()->getInfo());
+//         }
+//         f->enfileira(no->getInfo())
+//         qtdEnfileirada++;
+//     }
     
-    for(int i = 0; i < qtdEnfileirada; i++)
-    {
-        f->desenfileira();
-    }
-    return nova;
-}
+//     for(int i = 0; i < qtdEnfileirada; i++)
+//     {
+//         f->desenfileira();
+//     }
+//     return nova;
+// }
