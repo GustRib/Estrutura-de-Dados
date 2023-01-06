@@ -17,7 +17,7 @@ int ArvBin::getRaiz()
         return raiz->getInfo();
     else
     {
-        cout << "Árvore vazia!" << endl;
+        cout << "ï¿½rvore vazia!" << endl;
         exit(1);
     }
 }
@@ -38,16 +38,17 @@ void ArvBin::anulaRaiz()
 
 void ArvBin::montaArvore()
 {
+    int nivel = 0;
     if(!vazia())
         cout << "Arvore jah montada. So eh possivel a insercao de nos." << endl;
     else
     {
         cout << "Montagem da arvore em pre-ordem:" << endl;
-        raiz = auxMontaArvore();
+        raiz = auxMontaArvore(nivel);
     }
 }
 
-NoArv* ArvBin::auxMontaArvore()
+NoArv* ArvBin::auxMontaArvore(int nivel)
 {
     string linha;
     cout << "Valor: ";
@@ -58,13 +59,17 @@ NoArv* ArvBin::auxMontaArvore()
         int valor;
         ent >> valor;
         NoArv *p = new NoArv();
+
         p->setInfo(valor);
+
         cout << "Esquerda" << endl;
-        p->setEsq(auxMontaArvore());
+        p->setEsq(auxMontaArvore(nivel + 1));
         cout << "Volta no noh " << p->getInfo() << endl;
+
         cout << "Direita" << endl;
-        p->setDir(auxMontaArvore());
+        p->setDir(auxMontaArvore(nivel + 1));
         cout << "Volta no noh " << p->getInfo() << endl;
+
         return p;
     }
     else
@@ -150,5 +155,20 @@ void ArvBin::auxPreOrdem(NoArv *p)
         cout << p->getInfo() << " ";
         auxPreOrdem(p->getEsq());
         auxPreOrdem(p->getDir());
+    }
+}
+
+void ArvBin::imprime()
+{
+    auxImprime(raiz);
+}
+
+void ArvBin::auxImprime(NoArv *p)
+{
+    if(p != NULL)
+    {
+        auxImprime(p->getEsq());
+        cout << p->getInfo() << endl;
+        auxImprime(p->getDir());
     }
 }
