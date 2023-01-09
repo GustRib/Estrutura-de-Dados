@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ArvBinBusca.h"
+#include "ArvBinBusca.cpp"
 
 using namespace std;
 
@@ -41,6 +42,12 @@ int main()
 
     cout << "Arvore Binaria de Busca final:" << endl;
     arv.imprime();
+
+
+//EX 1
+    cout << "Maior valor da Arvore: " << arv.maior() << endl;
+//EX 2
+    cout << "Menor valor da Arvore: " << arv.menor() << endl;
 
     return 0;
 }

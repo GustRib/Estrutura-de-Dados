@@ -159,3 +159,60 @@ float ArvBinBusca::mediaCaminho(int ch)
     }
     return (float)soma/cont;
 }
+
+int ArvBinBusca::maior()
+{
+    if(raiz != NULL)
+	    return auxMaior(raiz);
+    else
+        exit(1);
+}
+int ArvBinBusca::auxMaior(NoArv* p)
+{
+	if (p->getDir() != NULL)
+		return auxMaior(p->getDir()); // na ultima chamada teremos a info do ultimo no a direita e retornaremos ele.
+	else
+		return p->getInfo();
+}
+
+// int ArvBinBusca::maioriterativo()
+// {
+//     if(raiz == NULL)
+//     {
+//         cout << "ERRO: Arvore vazia!" << endl;
+//         exit(1);
+//     }
+//     NoArv *p = raiz;
+//     while(p->getDir() =! NULL)
+//     p = p->getDir();
+
+//     return p->getInfo();
+// }
+
+int ArvBinBusca::menor()
+{
+    if(raiz =! NULL)
+        return auxMenor(raiz);
+    else
+}
+
+int ArvBinBusca::auxMenor(NoArv* p)
+{
+    if (p->getEsq() != NULL)
+        return auxMenor(p->getEsq());
+    else
+        return p->getInfo();
+}
+
+void ArvBinBusca::removeMaior()
+{
+    if(raiz =! NULL)
+        return auxRemoveMaior();
+    else    
+        exit(3);
+}
+
+void ArvBinBusca::auxRemoveMaior()
+{
+
+}
