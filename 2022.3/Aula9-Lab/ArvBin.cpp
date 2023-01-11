@@ -172,3 +172,48 @@ void ArvBin::auxImprime(NoArv *p)
         auxImprime(p->getDir());
     }
 }
+
+int *ArvBin::criaVetNegativos(int k, int val)
+{
+    if (raiz == NULL)
+    {
+        return NULL;
+    }
+
+    int val = 0;
+    *n = pow(2, k);
+    int *vet = new int[*n];
+
+    for (int i = 0; i < *n; i++)
+    {
+        vet[i] = -1;
+    }
+
+    auxCriaVetNegativos(raiz, k, n, vet, &val);
+    
+    if (val == 0)
+    {
+        cout << "A arvore nao tem valores negativos nesse nivel" << endl;
+    }
+
+    return n;
+}
+
+void ArvBin::auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem)
+{
+    if (k== 0 && p != NULL)
+    {
+        if(p->getInfo() < 0)
+        {
+            vet[*elem] = p->getInfo();
+            *elem = *elem + 1;
+        }
+        else
+            return;
+    }
+    else if (p != NULL)
+    {
+        auxCriaVetNegativos(p->getEsq(), k - 1, n, vet, elem);
+        auxCriaVetNegativos(p->getDir(), k - 1, n, vet, elem);
+    }
+}

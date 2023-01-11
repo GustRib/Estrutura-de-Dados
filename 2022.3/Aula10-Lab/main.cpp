@@ -48,6 +48,9 @@ int main()
     cout << "Maior valor da Arvore: " << arv.maior() << endl;
 //EX 2
     cout << "Menor valor da Arvore: " << arv.menor() << endl;
+//EX 3
+    arv.removeMenor();
+    arv.imprime();
 
     return 0;
 }

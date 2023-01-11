@@ -194,6 +194,7 @@ int ArvBinBusca::menor()
     if(raiz =! NULL)
         return auxMenor(raiz);
     else
+        return p->getInfo()
 }
 
 int ArvBinBusca::auxMenor(NoArv* p)
@@ -206,13 +207,12 @@ int ArvBinBusca::auxMenor(NoArv* p)
 
 void ArvBinBusca::removeMaior()
 {
-    if(raiz =! NULL)
-        return auxRemoveMaior();
-    else    
-        exit(3);
+	int val = maior();
+	remove(val);
 }
 
-void ArvBinBusca::auxRemoveMaior()
+void ArvBinBusca::removeMenor()
 {
-
+	int val = menor();
+	remove(val);
 }

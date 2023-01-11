@@ -16,6 +16,7 @@ class ArvBin
     void montaArvore();
     void insere(int x);
     void imprime();
+    int* criaVetNegativos(int k, int *n);
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
@@ -28,6 +29,7 @@ class ArvBin
     void auxInverte(NoArv * p);
     NoArv* auxInsere(NoArv *p, int x);
     void auxImprime(NoArv *p);
+    void auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem);
 };
 
 #endif // ARVBIN_H_INCLUDED

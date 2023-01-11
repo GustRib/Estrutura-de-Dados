@@ -16,6 +16,7 @@ public:
     int maior();
     int menor();
     void removeMaior();
+    void removeMenor();
 
 private:
     NoArv* raiz; // ponteiro para o No raiz da �rvore
@@ -29,7 +30,6 @@ private:
     NoArv* libera(NoArv *p);
     int auxMaior(NoArv *p);
     int auxMenor(NoArv *p);
-    void auxRemoveMaior(NoArv *p);
 };
 
 #endif // ARVBINBUSCA_H_INCLUDED
