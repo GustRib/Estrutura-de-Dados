@@ -3,6 +3,7 @@
 #include <cstring>
 #include <sstream>
 #include "ArvBin.h"
+#include <math.h>
 
 using namespace std;
 
@@ -173,7 +174,7 @@ void ArvBin::auxImprime(NoArv *p)
     }
 }
 
-int *ArvBin::criaVetNegativos(int k, int val)
+int *ArvBin::criaVetNegativos(int k, int *n)
 {
     if (raiz == NULL)
     {
@@ -216,4 +217,36 @@ void ArvBin::auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem)
         auxCriaVetNegativos(p->getEsq(), k - 1, n, vet, elem);
         auxCriaVetNegativos(p->getDir(), k - 1, n, vet, elem);
     }
+}
+
+int ArvBin::contaNos()
+{
+    if(!vazia())
+        return auxContaNos(raiz);
+    else
+        exit(1);
+}
+
+int ArvBin::auxContaNos(NoArv *p)
+{
+    if(p == NULL)
+        return 0;
+    else
+        return 1 + auxContaNos(p->getDir()) + auxContaNos(p->getEsq());
+}
+
+int ArvBin::contaNosFolhas()
+{
+	return auxContaNosFolhas(raiz);
+}
+
+int ArvBin::auxContaNosFolhas(NoArv* p)
+{
+	if (p == NULL)
+		return 0;
+
+	int total = auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
+	if (p->getEsq() == NULL && p->getDir() == NULL)
+		total++;
+	return total;
 }
