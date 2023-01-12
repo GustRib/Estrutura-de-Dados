@@ -19,6 +19,7 @@ class ArvBin
     int* criaVetNegativos(int k, int *n);
     int contaNos();
     int contaNosFolhas();
+    int altura();
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
@@ -33,7 +34,9 @@ class ArvBin
     void auxImprime(NoArv *p);
     void auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem);
     int auxContaNos(NoArv *p);
+    bool EhFolha(NoArv *p);
     int auxContaNosFolhas(NoArv *p);
+    int auxAltura(NoArv *p);
 };
 
 #endif // ARVBIN_H_INCLUDED

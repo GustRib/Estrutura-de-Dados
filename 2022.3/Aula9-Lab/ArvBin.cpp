@@ -116,14 +116,14 @@ bool ArvBin::busca(int x)
 
 bool ArvBin::auxBusca(NoArv *p, int x)
 {
-    if (p == NULL)
+    if (p == NULL) // a esta arvore vazia
         return false;
-    else if (p->getInfo() == x)
+    else if (p->getInfo() == x) // o valor X está na arvore
         return true;
-    else if (auxBusca(p->getEsq(), x))
+    else if (auxBusca(p->getEsq(), x)) // buscando o calor pela esquerda
         return true;
     else
-        return auxBusca(p->getDir(), x);
+        return auxBusca(p->getDir(), x); // se ele nao estiver na esquerda ele obrigatoriamente esta na direita
 }
 
 ArvBin::~ArvBin()
@@ -168,9 +168,21 @@ void ArvBin::auxImprime(NoArv *p)
 {
     if(p != NULL)
     {
+        //Percurso em Pré ordem:
+        cout << p->getInfo() << " " << endl;
         auxImprime(p->getEsq());
-        cout << p->getInfo() << endl;
         auxImprime(p->getDir());
+
+        //Percurso em ordem:
+        // auxImprime(p->getEsq());
+        // cout << p->getInfo() << " " << endl;
+        // auxImprime(p->getDir());
+        
+        //Percuso em Pós Ordem:
+        // auxImprime(p->getEsq());
+        // auxImprime(p->getDir());
+        // cout << p->getInfo() << " " << endl; 
+        
     }
 }
 
@@ -235,18 +247,54 @@ int ArvBin::auxContaNos(NoArv *p)
         return 1 + auxContaNos(p->getDir()) + auxContaNos(p->getEsq());
 }
 
+bool ArvBin::EhFolha(NoArv *p)
+{
+    return p->getEsq()==NULL && p->getDir()==NULL;
+}
+
 int ArvBin::contaNosFolhas()
 {
-	return auxContaNosFolhas(raiz);
+        if(!vazia())
+        return auxContaNosFolhas(raiz);
+    else
+        exit(2);
 }
 
 int ArvBin::auxContaNosFolhas(NoArv* p)
 {
-	if (p == NULL)
-		return 0;
+	// if (p == NULL)
+	// 	return 0;
 
-	int total = auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
-	if (p->getEsq() == NULL && p->getDir() == NULL)
-		total++;
-	return total;
+	// int total = auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
+	// if (p->getEsq() == NULL && p->getDir() == NULL)
+	// 	total++;
+	// return total;
+
+    //utilizando a funcao EhFolha:
+    if(p == NULL)
+        return 0;
+    else if(EhFolha(p))
+        return 1;
+    else
+        return auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
+}
+
+int ArvBin::altura()
+{
+    if(!vazia())
+        return auxAltura(raiz);
+    else
+        exit(3);
+}
+
+int ArvBin::auxAltura(NoArv *p)
+{
+    if (p == NULL)
+        return -1;
+    else
+    {
+        int he = auxAltura(p->getEsq());
+        int hd = auxAltura(p->getDir());
+        return ( he>hd ? he : hd) + 1;
+    }
 }

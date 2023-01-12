@@ -32,13 +32,13 @@ int main()
 
     a1->imprime();
 
-    cout << endl << a1->busca(19) << endl;
+    cout << endl << "O valor informado esta na arvore?" << a1->busca(20) << endl;
 
     cout << endl << "Numero nos: " << a1->contaNos() << endl;
 
     cout << endl << "Numero folhas: " << a1->contaNosFolhas() << endl;
 
-    // cout << endl << "altura: " << a1->altura() << endl;
+    cout << endl << "altura: " << a1->altura() << endl;
 
     // delete a1;
     // delete vazia;

@@ -1,3 +1,1 @@
-    // arv.imprime();
-    // cout << "Total de nos: " << arv.contaNos() << endl;
-	// cout << "Total de folhas: " << arv.contaNosFolhas() << endl;
+    cout << endl << "altura: " << a1->altura() << endl;
