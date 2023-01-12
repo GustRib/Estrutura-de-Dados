@@ -209,7 +209,7 @@ int *ArvBin::criaVetNegativos(int k, int *n)
         cout << "A arvore nao tem valores negativos nesse nivel" << endl;
     }
 
-    return n;
+    return val;
 }
 
 void ArvBin::auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem)
@@ -236,7 +236,7 @@ int ArvBin::contaNos()
     if(!vazia())
         return auxContaNos(raiz);
     else
-        exit(1);
+        exit(2);
 }
 
 int ArvBin::auxContaNos(NoArv *p)
@@ -257,7 +257,7 @@ int ArvBin::contaNosFolhas()
         if(!vazia())
         return auxContaNosFolhas(raiz);
     else
-        exit(2);
+        exit(3);
 }
 
 int ArvBin::auxContaNosFolhas(NoArv* p)
@@ -284,7 +284,7 @@ int ArvBin::altura()
     if(!vazia())
         return auxAltura(raiz);
     else
-        exit(3);
+        exit(4);
 }
 
 int ArvBin::auxAltura(NoArv *p)

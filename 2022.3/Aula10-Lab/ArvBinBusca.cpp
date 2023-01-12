@@ -183,7 +183,7 @@ int ArvBinBusca::auxMaior(NoArv* p)
 //         exit(1);
 //     }
 //     NoArv *p = raiz;
-//     while(p->getDir() =! NULL)
+//     while(p->getDir() != NULL)
 //     p = p->getDir();
 
 //     return p->getInfo();
@@ -191,7 +191,7 @@ int ArvBinBusca::auxMaior(NoArv* p)
 
 int ArvBinBusca::menor()
 {
-    if(raiz =! NULL)
+    if(raiz != NULL)
         return auxMenor(raiz);
     else
         return p->getInfo()

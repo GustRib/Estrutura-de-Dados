@@ -1,1 +1,0 @@
-    cout << endl << "altura: " << a1->altura() << endl;
