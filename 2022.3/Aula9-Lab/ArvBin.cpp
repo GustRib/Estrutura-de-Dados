@@ -209,7 +209,7 @@ int *ArvBin::criaVetNegativos(int k, int *n)
         cout << "A arvore nao tem valores negativos nesse nivel" << endl;
     }
 
-    return val;
+    return n;
 }
 
 void ArvBin::auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem)
@@ -262,6 +262,15 @@ int ArvBin::contaNosFolhas()
 
 int ArvBin::auxContaNosFolhas(NoArv* p)
 {
+    if (p == NULL)
+        return 0;
+    
+    if(p->getEsq() == NULL && p->getDir() == NULL)
+        return auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir()) + 1;
+    else
+        return auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
+
+    //Criando uma variavel pra armazenar o resultado:
 	// if (p == NULL)
 	// 	return 0;
 
@@ -271,12 +280,12 @@ int ArvBin::auxContaNosFolhas(NoArv* p)
 	// return total;
 
     //utilizando a funcao EhFolha:
-    if(p == NULL)
-        return 0;
-    else if(EhFolha(p))
-        return 1;
-    else
-        return auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
+    // if(p == NULL)
+    //     return 0;
+    // else if(EhFolha(p))
+    //     return 1;
+    // else
+    //     return auxContaNosFolhas(p->getEsq()) + auxContaNosFolhas(p->getDir());
 }
 
 int ArvBin::altura()
@@ -297,4 +306,20 @@ int ArvBin::auxAltura(NoArv *p)
         int hd = auxAltura(p->getDir());
         return ( he>hd ? he : hd) + 1;
     }
+}
+
+int ArvBin::contaImpar()
+{
+    return auxContaImpar(raiz);
+}
+
+int ArvBin::auxContaImpar(NoArv *p)
+{
+    if(p == NULL)   
+        return 0;
+
+    int impares = auxContaImpar(p->getEsq()) + auxContaImpar(p->getDir());
+	if (p->getInfo() % 2 == !0 )
+		impares++;
+	return impares;
 }

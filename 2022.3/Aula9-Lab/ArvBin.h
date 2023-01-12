@@ -20,6 +20,7 @@ class ArvBin
     int contaNos();
     int contaNosFolhas();
     int altura();
+    int contaImpar();
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
@@ -37,6 +38,7 @@ class ArvBin
     bool EhFolha(NoArv *p);
     int auxContaNosFolhas(NoArv *p);
     int auxAltura(NoArv *p);
+    int auxContaImpar(NoArv *p);
 };
 
 #endif // ARVBIN_H_INCLUDED

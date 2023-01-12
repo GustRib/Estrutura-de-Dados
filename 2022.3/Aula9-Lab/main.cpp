@@ -61,6 +61,8 @@ int main()
     arv.imprime();
     cout << "Total de nos: " << arv.contaNos() << endl;
 	cout << "Total de folhas: " << arv.contaNosFolhas() << endl;
+    cout << "Altura da arvore: " << arv.altura() << endl;
+    cout << "Total de nos impares: " << arv.contaImpar() << endl;
     a1.anulaRaiz();
     a2.anulaRaiz();
     a3.anulaRaiz();
