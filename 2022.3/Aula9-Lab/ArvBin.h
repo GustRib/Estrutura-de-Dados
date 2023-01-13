@@ -21,6 +21,12 @@ class ArvBin
     int contaNosFolhas();
     int altura();
     int contaImpar();
+    int contaFolhaImpar();
+    void imprimeNivel(int k);
+    float mediaNivel(int k);
+    int min();
+    int max();
+    void inverte();
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
@@ -30,7 +36,6 @@ class ArvBin
     void auxPreOrdem(NoArv *p);
     NoArv* auxMontaArvore(int nivel);
     void auxImpNivel(NoArv *p, int atual, int k);
-    void auxInverte(NoArv * p);
     NoArv* auxInsere(NoArv *p, int x);
     void auxImprime(NoArv *p);
     void auxCriaVetNegativos(NoArv *p, int k, int *n, int *vet, int *elem);
@@ -39,6 +44,13 @@ class ArvBin
     int auxContaNosFolhas(NoArv *p);
     int auxAltura(NoArv *p);
     int auxContaImpar(NoArv *p);
+    int auxContaFolhaImpar(NoArv *p);
+    void auxImprimeNivel(NoArv *p, int k, int atual);
+    void auxMediaNivel(NoArv *p, int k, int *soma, int *cont);
+    void auxMin(NoArv *p, int *menor);
+    void auxMax(NoArv *p, int *maior);
+    void auxInverte(NoArv * p);
+    
 };
 
 #endif // ARVBIN_H_INCLUDED

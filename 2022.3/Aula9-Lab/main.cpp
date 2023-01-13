@@ -63,6 +63,17 @@ int main()
 	cout << "Total de folhas: " << arv.contaNosFolhas() << endl;
     cout << "Altura da arvore: " << arv.altura() << endl;
     cout << "Total de nos impares: " << arv.contaImpar() << endl;
+    cout << "Total de folhas impares: " << arv.contaFolhaImpar() << endl;
+    int k = 3;
+    cout << "Imprime Nivel " << k << ": ";
+    arv.imprimeNivel(k);
+    cout << endl;
+    cout << "Media Nivel " << k << ": " << arv.mediaNivel(k) << endl;
+    cout << "Menor valor da arvore: " << arv.min() << endl;
+    cout << "Maior valor da arvore: " << arv.max() << endl;
+    arv.inverte();
+    arv.imprime();
+
     a1.anulaRaiz();
     a2.anulaRaiz();
     a3.anulaRaiz();
