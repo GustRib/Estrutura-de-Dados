@@ -460,3 +460,36 @@ void ArvBin::auxInverte(NoArv *p)
         p->setDir(q);
     }
 }
+
+int ArvBin::noMaisEsquerda()
+{
+    if(!vazia())
+        return auxNoMaisEsquerda(raiz);
+    else
+        exit(10);
+}
+
+int ArvBin::auxNoMaisEsquerda(NoArv *p)
+{
+    if(p->getEsq() == NULL && p->getDir() == NULL)
+        return p->getInfo();
+    else
+        auxNoMaisEsquerda(p->getEsq());
+
+}
+
+int ArvBin::noMaisDireita()
+{
+    if(!vazia())
+        return auxNoMaisDireita(raiz);
+    else
+        exit(11);
+}
+
+int ArvBin::auxNoMaisDireita(NoArv *p)
+{
+    if(p->getEsq() == NULL && p->getDir() == NULL)
+        return p->getInfo();
+    else
+        auxNoMaisDireita(p->getDir());
+}

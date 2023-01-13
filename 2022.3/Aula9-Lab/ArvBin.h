@@ -27,6 +27,8 @@ class ArvBin
     int min();
     int max();
     void inverte();
+    int noMaisEsquerda();
+    int noMaisDireita();
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
@@ -50,6 +52,8 @@ class ArvBin
     void auxMin(NoArv *p, int *menor);
     void auxMax(NoArv *p, int *maior);
     void auxInverte(NoArv * p);
+    int auxNoMaisEsquerda(NoArv *p);
+    int auxNoMaisDireita(NoArv *p);
     
 };
 
