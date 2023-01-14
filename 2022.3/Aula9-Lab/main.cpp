@@ -75,6 +75,10 @@ int main()
     //arv.imprime();
     cout << "No mais a esquerdo da Arvore: " << arv.noMaisEsquerda() << endl;
     cout << "No mais a direita da Arvore: " << arv.noMaisDireita() << endl;
+    arv.contaElegante();
+    arv.contagens(k);
+    arv.contagens2(10, k);
+    cout << "Diference entre a maior folha e a menor: " << arv.difMaxMinFolha() << endl;
 
     a1.anulaRaiz();
     a2.anulaRaiz();

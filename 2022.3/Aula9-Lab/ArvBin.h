@@ -29,6 +29,10 @@ class ArvBin
     void inverte();
     int noMaisEsquerda();
     int noMaisDireita();
+    void contaElegante();
+    void contagens(int k);
+    void contagens2(int val, int k);
+    int difMaxMinFolha();
 
   private:
     NoArv *raiz; // ponteiro para o No raiz da �rvore
@@ -54,6 +58,10 @@ class ArvBin
     void auxInverte(NoArv * p);
     int auxNoMaisEsquerda(NoArv *p);
     int auxNoMaisDireita(NoArv *p);
+    void auxContaElegante(NoArv *p, int *mult3, int *folhaneg);
+    void auxContagens(NoArv *p,int atual, int k, int *cont1, int *cont2);
+    void auxContagens2(NoArv *p,int val, int atual, int k, int *cont1, int *cont2);
+    int auxDifMaxMinFolha(NoArv *p, int *min, int *max);
     
 };
 

@@ -493,3 +493,104 @@ int ArvBin::auxNoMaisDireita(NoArv *p)
     else
         auxNoMaisDireita(p->getDir());
 }
+
+void ArvBin::contaElegante()
+{
+    int mult3 = 0;
+    int folhaneg = 0;
+
+    auxContaElegante(raiz, &mult3, &folhaneg);
+    cout << "Nos multiplos de 3: " << mult3 << endl;
+    cout << "Folhas negativas: " << folhaneg << endl;
+}
+
+void ArvBin::auxContaElegante(NoArv *p, int *mult3, int *folhaneg)
+{
+    if(p != NULL)
+    {
+        auxContaElegante(p->getEsq(), mult3, folhaneg);
+        auxContaElegante(p->getDir(), mult3, folhaneg);
+        if (p->getInfo() % 3 == 0)
+            (*mult3)++;
+        if(p->getEsq() == NULL && p->getDir() == NULL && p->getInfo() < 0)
+            (*folhaneg)++;
+        }
+}
+
+void ArvBin::contagens(int k)
+{
+    int cont1 = 0;
+    int cont2 = 0;
+    if(!vazia())
+    {
+        auxContagens(raiz, 0, k, &cont1, &cont2);
+        cout << "Quantos nos possuem valores pares e somente 1 filho a esquerda: " << cont1 << endl;
+        cout << "Quantos nos sao folhas ate o nivel K: " << cont2 << endl;
+    }
+    else
+        exit(12);
+}
+
+void ArvBin::auxContagens(NoArv *p,int atual, int k, int *cont1, int *cont2)
+{
+        if(p != NULL)
+    {
+        auxContagens(p->getEsq(), atual+1, k, cont1, cont2);
+        auxContagens(p->getDir(), atual+1, k, cont1, cont2);
+        if (p->getInfo() % 2 == 0 && p->getEsq() != NULL && p->getDir() == NULL)
+            (*cont1)++;
+        if(p->getEsq() == NULL && p->getDir() == NULL && atual <= k)
+            (*cont2)++;
+        }
+}
+
+void ArvBin::contagens2(int val, int k)
+{
+    int cont1 = 0;
+    int cont2 = 0;
+    if(!vazia())
+    {
+        auxContagens2(raiz, val, 0, k, &cont1, &cont2);
+        cout << "Quantos nos possuem valores maiores que val e somente um filho a direita: " << cont1 << endl;
+        cout << "Quantos nos possume dois filhos ate o nivel K: " << cont2 << endl;
+    }
+    else
+        exit(13);
+}
+
+void ArvBin::auxContagens2(NoArv *p, int val, int atual, int k, int *cont1, int *cont2)
+{
+        if(p != NULL)
+    {
+        if (p->getInfo() > val && p->getEsq() == NULL && p->getDir() != NULL)
+            (*cont1)++;
+        if(p->getEsq() != NULL && p->getDir() != NULL && atual <= k)
+            (*cont2)++;
+        auxContagens2(p->getEsq(), val, atual+1, k, cont1, cont2);
+        auxContagens2(p->getDir(), val, atual+1, k, cont1, cont2);
+        }
+}
+
+int ArvBin::difMaxMinFolha()
+{
+    int min = INT8_MAX;
+    int max = -INT8_MAX;
+    auxDifMaxMinFolha(raiz, &min, &max);
+    return abs(min-max);
+}
+
+int ArvBin::auxDifMaxMinFolha(NoArv *p, int *min, int *max)
+{
+    if(p != NULL)
+    {
+        if(p->getEsq() == NULL && p->getDir() == NULL)
+        {
+            if(p->getInfo() < *min)
+                *min = p->getInfo();
+            if(p->getInfo() > *max)
+                *max = p->getInfo();
+        }
+        auxDifMaxMinFolha(p->getEsq(), min, max);
+        auxDifMaxMinFolha(p->getDir(), min, max);
+    }
+}
