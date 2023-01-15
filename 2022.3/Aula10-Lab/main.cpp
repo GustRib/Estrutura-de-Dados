@@ -36,8 +36,9 @@ int main()
     arv.remove(6);
     arv.remove(7);
     arv.remove(12);
-    arv.remove(18);
     arv.remove(5);
+    arv.remove(9);
+    arv.remove(10);
     cout << endl;
 
     cout << "Arvore Binaria de Busca final:" << endl;
@@ -49,8 +50,19 @@ int main()
 //EX 2
     cout << "Menor valor da Arvore: " << arv.menor() << endl;
 //EX 3
-    arv.removeMenor();
+    // arv.removeMaior();
     arv.imprime();
+    cout << endl;
+//EX 4
+    // arv.removeMenor();
+    arv.imprime();
+    cout << endl;
+//EX 5
+    int nImpar = 0;
+    int n2Filhos = 0;
+    arv.nosImpares02Filhos(&nImpar, &n2Filhos);
+    arv.imprime();
+
 
     return 0;
 }

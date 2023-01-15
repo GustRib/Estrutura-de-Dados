@@ -128,6 +128,7 @@ void ArvBinBusca::imprimePorNivel(NoArv *p, int nivel)
 ArvBinBusca::~ArvBinBusca()
 {
     raiz = libera(raiz);
+    //raiz = NULL;
 }
 
 NoArv* ArvBinBusca::libera(NoArv *p)
@@ -138,6 +139,10 @@ NoArv* ArvBinBusca::libera(NoArv *p)
         p->setDir(libera(p->getDir()));
         delete p;
         p = NULL;
+
+        // libera(p->getEsq());
+        // libera(p->getDir());
+        // delete p;
     }
     return p;
 }
@@ -163,7 +168,7 @@ float ArvBinBusca::mediaCaminho(int ch)
 int ArvBinBusca::maior()
 {
     if(raiz != NULL)
-	    return auxMaior(raiz);
+        return auxMaior(raiz);
     else
         exit(1);
 }
@@ -194,10 +199,10 @@ int ArvBinBusca::menor()
     if(raiz != NULL)
         return auxMenor(raiz);
     else
-        return p->getInfo()
+        exit(3);
 }
 
-int ArvBinBusca::auxMenor(NoArv* p)
+int ArvBinBusca::auxMenor(NoArv *p)
 {
     if (p->getEsq() != NULL)
         return auxMenor(p->getEsq());
@@ -207,12 +212,83 @@ int ArvBinBusca::auxMenor(NoArv* p)
 
 void ArvBinBusca::removeMaior()
 {
-	int val = maior();
-	remove(val);
+        if(!vazia())
+        raiz = auxRemoveMaior(raiz);
+    else    
+        exit(4);
+}
+
+NoArv *ArvBinBusca::auxRemoveMaior(NoArv *p)
+{
+    if(p != NULL)
+    {
+        if (p->getDir() == NULL)
+        {
+            NoArv *q = p->getDir();
+            delete p;
+            return q;
+        }
+        p->setDir(auxRemoveMaior(p->getDir()));
+        return p;
+    }
 }
 
 void ArvBinBusca::removeMenor()
 {
-	int val = menor();
-	remove(val);
+    if(!vazia())
+        raiz = auxRemoveMenor(raiz);
+    else    
+        exit(5);
+}
+
+NoArv *ArvBinBusca::auxRemoveMenor(NoArv *p)
+{
+    if(p != NULL)
+    {
+        if (p->getEsq() == NULL)
+        {
+            NoArv *q = p->getEsq();
+            delete p;
+            return q;
+        }
+        p->setEsq(auxRemoveMenor(p->getEsq()));
+        return p;
+    }
+}
+
+// int ArvBinBusca::contaParesCaminho(int x)
+// {
+
+// }
+
+// int ArvBinBusca::auxContaParesCaminho(NoArv *p, int x)
+// {
+    
+// }
+
+void ArvBinBusca::nosImpares02Filhos(int *nImpar, int *n2Filhos)
+{
+    if(!vazia())
+    {
+        auxNosImpares02Filhos(raiz, nImpar, n2Filhos);
+        cout << "Quantos nos tem valores impares: " << *nImpar << endl;
+        cout << "Quantos nos tem zero ou dois filhos: " << *n2Filhos << endl;
+    }
+    else
+        exit(6);
+}
+
+void ArvBinBusca::auxNosImpares02Filhos(NoArv *p, int *nImpar, int *n2Filhos)
+{
+    if(p != NULL)   
+    {
+        if (p->getInfo() % 2 != 0)
+            (*nImpar)++;
+
+        if(p->getEsq() == NULL && p->getDir() == NULL || p->getEsq() != NULL && p->getDir() != NULL) 
+            (*n2Filhos)++;
+            
+        auxNosImpares02Filhos(p->getEsq(), nImpar, n2Filhos);
+        auxNosImpares02Filhos(p->getDir(), nImpar, n2Filhos);
+    }
 }
