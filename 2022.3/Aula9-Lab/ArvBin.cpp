@@ -304,7 +304,7 @@ int ArvBin::auxAltura(NoArv *p)
     {
         int he = auxAltura(p->getEsq());
         int hd = auxAltura(p->getDir());
-        return ( he>hd ? he : hd) + 1;
+        return (he>hd ? he : hd) + 1;
     }
 }
 
@@ -573,6 +573,8 @@ void ArvBin::auxContagens2(NoArv *p, int val, int atual, int k, int *cont1, int 
 
 int ArvBin::difMaxMinFolha()
 {
+    if(raiz == NULL)
+        return -1;
     int min = INT8_MAX;
     int max = -INT8_MAX;
     auxDifMaxMinFolha(raiz, &min, &max);

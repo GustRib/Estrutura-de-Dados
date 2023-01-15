@@ -71,7 +71,7 @@ int main()
     cout << "Media Nivel " << k << ": " << arv.mediaNivel(k) << endl;
     cout << "Menor valor da arvore: " << arv.min() << endl;
     cout << "Maior valor da arvore: " << arv.max() << endl;
-    //arv.inverte();
+    arv.inverte();
     //arv.imprime();
     cout << "No mais a esquerdo da Arvore: " << arv.noMaisEsquerda() << endl;
     cout << "No mais a direita da Arvore: " << arv.noMaisDireita() << endl;
